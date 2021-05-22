@@ -1,0 +1,13 @@
+columns:
+    name:
+        label: 'codecycler.teams::lang.fields.name'
+        type: text
+        searchable: true
+        invisible: false
+        sortable: true
+    code:
+        label: 'codecycler.teams::lang.fields.code'
+        type: text
+        searchable: true
+        invisible: false
+        sortable: true

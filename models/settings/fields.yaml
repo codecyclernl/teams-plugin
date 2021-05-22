@@ -1,0 +1,36 @@
+fields:
+    theme_options:
+        label: 'codecycler.teams::lang.fields.theme_options'
+        type: repeater
+        span: left
+        form:
+            fields:
+                key:
+                    label: Key
+                    span: full
+                type:
+                    label: Type
+                    span: full
+                    type: dropdown
+                    options:
+                        text: text
+                        dropdown: dropdown
+                        checkbox: checkbox
+                        switch: switch
+                        colorpicker: colorpicker
+                options:
+                    label: Options
+                    span: full
+                    type: repeater
+                    trigger:
+                        action: show
+                        field: type
+                        condition: value[dropdown]
+                    form:
+                        fields:
+                            key:
+                                label: Key
+                                span: left
+                            value:
+                                label: Value
+                                span: right

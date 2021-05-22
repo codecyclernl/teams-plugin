@@ -1,0 +1,13 @@
+fields:
+    name:
+        label: 'codecycler.teams::lang.fields.name'
+        span: auto
+        type: text
+    code:
+        label: 'codecycler.teams::lang.fields.code'
+        span: auto
+        readOnly: 1
+        type: text
+        context:
+            - update
+            - preview

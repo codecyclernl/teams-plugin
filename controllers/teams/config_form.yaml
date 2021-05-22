@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Team
+
+# Model Form Field configuration
+form: $/codecycler/teams/models/team/fields.yaml
+
+# Model Class name
+modelClass: Codecycler\Teams\Models\Team
+
+# Default redirect location
+defaultRedirect: codecycler/teams/teams
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: codecycler/teams/teams/update/:id
+    redirectClose: codecycler/teams/teams
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: codecycler/teams/teams
+    redirectClose: codecycler/teams/teams
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

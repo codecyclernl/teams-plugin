@@ -1,0 +1,10 @@
+1.0.1: 'First version of Teams'
+1.0.2:
+    - 'Created table codecycler_teams_teams'
+    - builder_table_create_codecycler_teams_teams.php
+1.0.3:
+    - 'Created table codecycler_teams_teams_users'
+    - builder_table_create_codecycler_teams_teams_users.php
+1.0.4:
+    - 'Updated table codecycler_teams_teams_users'
+    - builder_table_update_codecycler_teams_teams_users.php
