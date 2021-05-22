@@ -2,9 +2,11 @@
 
 use App;
 use Event;
+use Flash;
 use Backend;
 use System\Classes\PluginBase;
 use RainLab\User\Classes\AuthManager;
+use Codecycler\Teams\Classes\TeamManager;
 use Codecycler\Teams\Classes\ExtendBackendUser;
 use Codecycler\Teams\Classes\ExtendModelFields;
 use Codecycler\Teams\Classes\ExtendFrontendUser;
@@ -27,16 +29,6 @@ class Plugin extends PluginBase
             'author'      => 'Codecycler',
             'icon'        => 'icon-leaf'
         ];
-    }
-
-    /**
-     * Register method, called when the plugin is first registered.
-     *
-     * @return void
-     */
-    public function register()
-    {
-
     }
 
     /**
@@ -63,37 +55,25 @@ class Plugin extends PluginBase
         $this->app->bind('Illuminate\Contracts\Auth\Factory', function () use ($authManager) {
             return $authManager;
         });
-    }
 
-    /**
-     * Registers any front-end components implemented in this plugin.
-     *
-     * @return array
-     */
-    public function registerComponents()
-    {
-        return []; // Remove this line to activate
+        //
+        Event::listen('backend.page.beforeDisplay', function ($controller) {
+            $controller->addJs('/plugins/codecycler/teams/assets/js/team-switcher.js');
 
-        return [
-            'Codecycler\Teams\Components\MyComponent' => 'myComponent',
-        ];
-    }
+            $controller->addDynamicMethod('onLoadTeamOptions', function () {
+                return auth()->user()->teams;
+            });
 
-    /**
-     * Registers any back-end permissions used by this plugin.
-     *
-     * @return array
-     */
-    public function registerPermissions()
-    {
-        return []; // Remove this line to activate
+            $controller->addDynamicMethod('onSwitchTeam', function () {
+                TeamManager::instance()->makeActive(input('team_id'));
 
-        return [
-            'codecycler.teams.some_permission' => [
-                'tab' => 'Teams',
-                'label' => 'Some permission'
-            ],
-        ];
+                $active = TeamManager::instance()->active();
+
+                Flash::success(e(trans('codecycler.teams::lang.messages.switched_team', ['name' => $active->name])));
+
+                return redirect()->refresh();
+            });
+        });
     }
 
     /**

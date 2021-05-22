@@ -11,3 +11,14 @@ fields:
         context:
             - update
             - preview
+tabs:
+    fields:
+        backend_users:
+            type: partial
+            path: field_backend_users
+            tab: codecycler.teams::lang.tabs.backend_users
+
+        users:
+            type: partial
+            path: field_users
+            tab: codecycler.teams::lang.tabs.users

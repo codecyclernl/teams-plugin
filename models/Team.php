@@ -3,6 +3,7 @@
 use Model;
 use Ramsey\Uuid\Uuid;
 use System\Classes\PluginManager;
+use Codecycler\Teams\Classes\TeamManager;
 
 /**
  * Model
@@ -14,6 +15,10 @@ class Team extends Model
     use \October\Rain\Database\Traits\SoftDelete;
 
     protected $dates = ['deleted_at'];
+
+    protected $appends = [
+        'is_active',
+    ];
 
     protected $jsonable = [
         'theme_options',
@@ -61,5 +66,17 @@ class Team extends Model
         if (!$this->code) {
             $this->code = Uuid::uuid4();
         }
+    }
+
+    public static function byCode($code)
+    {
+        return static::where('code', $code);
+    }
+
+    public function getIsActiveAttribute()
+    {
+        $active = TeamManager::instance()->active();
+
+        return $active->id === $this->id;
     }
 }

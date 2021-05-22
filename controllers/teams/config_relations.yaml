@@ -1,0 +1,15 @@
+backend_users:
+  label: Backend users
+  manage:
+    form: ~/modules/backend/models/user/fields.yaml
+  view:
+    toolbarButtons: link|unlink
+    list: ~/modules/backend/models/user/columns.yaml
+
+users:
+  label: Users
+  manage:
+    form: $/rainlab/user/models/user/fields.yaml
+  view:
+    toolbarButtons: link|unlink
+    list: $/rainlab/user/models/user/columns.yaml
