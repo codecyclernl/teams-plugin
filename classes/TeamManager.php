@@ -9,6 +9,10 @@ class TeamManager
 
     public function active(): ?Team
     {
+        if (!auth()->user()) {
+            return null;
+        }
+
         // First check the session
         if (! auth()->user()->teams->first()) {
             // Create a new team
@@ -43,7 +47,7 @@ class TeamManager
         $team = new Team();
 
         //
-        $team->name = $user->name;
+        $team->name = $user->name . '\'s team';
 
         //
         $team->save();

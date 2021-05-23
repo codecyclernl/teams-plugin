@@ -11,6 +11,10 @@ class ExtendModelFields
                 return;
             }
 
+            if (!isset($formWidget->model->implement)) {
+                $formWidget->model->implement = [];
+            }
+
             if (! $formWidget->model->implement) {
                 return;
             }
