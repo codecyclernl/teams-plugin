@@ -1,6 +1,7 @@
 <?php namespace Codecycler\Teams\Classes;
 
 use Codecycler\Teams\Models\Team;
+use Codecycler\Teams\Models\Settings;
 use October\Rain\Support\Traits\Singleton;
 
 class TeamManager
@@ -14,9 +15,14 @@ class TeamManager
         }
 
         // First check the session
-        if (! auth()->user()->teams->first()) {
+        if (! auth()->user()->teams->first() && Settings::get('auto_create_teams', false)) {
             // Create a new team
             $this->createPersonalTeam();
+        }
+
+        if (! auth()->user()->teams->first() && !Settings::get('auto_create_teams', false)) {
+            // Create a new team
+            return null;
         }
 
         $activeTeamId = session('active_team_id') ?? auth()->user()->teams->first()->id;

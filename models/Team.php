@@ -77,6 +77,10 @@ class Team extends Model
     {
         $active = TeamManager::instance()->active();
 
+        if (!$active) {
+            return false;
+        }
+
         return $active->id === $this->id;
     }
 }

@@ -116,4 +116,24 @@ class Plugin extends PluginBase
             ]
         ];
     }
+
+    public function registerMarkupTags()
+    {
+        return [
+            'functions' => [
+                'teams' => [$this, 'getTeams'],
+                'team' => [$this, 'getActiveTeam'],
+            ],
+        ];
+    }
+
+    public function getTeams()
+    {
+        return auth()->user()->teams;
+    }
+
+    public function getActiveTeam()
+    {
+        return TeamManager::instance()->active();
+    }
 }

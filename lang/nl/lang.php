@@ -4,6 +4,7 @@
         'code' => 'Code',
         'team_id' => 'Team',
         'theme_options' => 'Theme options',
+        'auto_create_teams' => 'Auto create teams for users without one',
     ],
     'tabs' => [
         'backend_users' => 'Backend users',
