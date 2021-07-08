@@ -8,3 +8,15 @@
 1.0.4:
     - 'Updated table codecycler_teams_teams_users'
     - builder_table_update_codecycler_teams_teams_users.php
+1.0.5:
+    - 'Created table codecycler_teams_features'
+    - builder_table_create_codecycler_teams_features.php
+1.0.6:
+    - 'Updated table codecycler_teams_features'
+    - builder_table_update_codecycler_teams_features.php
+1.0.7:
+    - 'Updated table codecycler_teams_features'
+    - builder_table_update_codecycler_teams_features_2.php
+1.0.8:
+    - 'Created table codecycler_teams_features_teams'
+    - builder_table_create_codecycler_teams_features_teams.php

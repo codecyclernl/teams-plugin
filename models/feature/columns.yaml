@@ -1,0 +1,11 @@
+columns:
+    feature_key:
+        label: 'Feature Key'
+        type: text
+        searchable: true
+        sortable: true
+    title:
+        label: Title
+        type: text
+        searchable: true
+        sortable: true

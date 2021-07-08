@@ -9,6 +9,8 @@
     'tabs' => [
         'backend_users' => 'Backend users',
         'users' => 'Users',
+        'features' => 'Features',
+        'theme_options' => 'Team options',
     ],
     'menu' => [
         'switch_team' => 'Team wisselen',

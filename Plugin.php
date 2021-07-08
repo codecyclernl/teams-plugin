@@ -96,6 +96,11 @@ class Plugin extends PluginBase
                         'url' => Backend::url('codecycler/teams/teams'),
                         'icon' => 'icon-users',
                     ],
+                    'features' => [
+                        'label' => 'Features',
+                        'url' => Backend::url('codecycler/teams/features'),
+                        'icon' => 'icon-certificate',
+                    ],
                 ],
             ],
         ];

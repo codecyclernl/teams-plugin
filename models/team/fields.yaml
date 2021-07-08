@@ -22,3 +22,8 @@ tabs:
             type: partial
             path: field_users
             tab: codecycler.teams::lang.tabs.users
+
+        features:
+            type: partial
+            path: field_features
+            tab: codecycler.teams::lang.tabs.features

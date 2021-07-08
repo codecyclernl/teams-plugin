@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Feature
+
+# Model Form Field configuration
+form: $/codecycler/teams/models/feature/fields.yaml
+
+# Model Class name
+modelClass: Codecycler\Teams\Models\Feature
+
+# Default redirect location
+defaultRedirect: codecycler/teams/features
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: codecycler/teams/features/update/:id
+    redirectClose: codecycler/teams/features
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: codecycler/teams/features
+    redirectClose: codecycler/teams/features
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

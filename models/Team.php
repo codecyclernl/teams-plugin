@@ -45,6 +45,13 @@ class Team extends Model
         ],
     ];
 
+    public $belongsToMany = [
+        'features' => [
+            Feature::class,
+            'table' => 'codecycler_teams_features_teams',
+        ],
+    ];
+
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);

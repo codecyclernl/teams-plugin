@@ -13,3 +13,12 @@ users:
   view:
     toolbarButtons: link|unlink
     list: $/rainlab/user/models/user/columns.yaml
+
+features:
+  label: Features
+  manage:
+    form: $/codecycler/teams/models/feature/fields.yaml
+  view:
+    toolbarButtons: link|unlink
+    recordUrl: codecycler/teams/features/preview/:id
+    list: $/codecycler/teams/models/feature/columns.yaml

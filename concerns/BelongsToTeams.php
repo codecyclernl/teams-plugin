@@ -14,6 +14,10 @@ class BelongsToTeams extends ModelBehavior
         parent::__construct($model);
 
         // Add the global scope
+        if (!auth()->user()) {
+            return;
+        }
+
         if (method_exists(auth()->user(), 'isSuperUser') && auth()->user()->isSuperUser()) {
             $this->skipScope = true;
         }

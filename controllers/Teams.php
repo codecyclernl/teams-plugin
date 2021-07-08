@@ -2,6 +2,7 @@
 
 use BackendMenu;
 use Backend\Classes\Controller;
+use Codecycler\Teams\Models\Settings;
 
 /**
  * Teams Back-end Controller
@@ -23,5 +24,22 @@ class Teams extends Controller
         parent::__construct();
 
         BackendMenu::setContext('Codecycler.Teams', 'teams', 'teams');
+    }
+
+    public function formExtendFields($formController)
+    {
+        // Add theme option fields
+        $themeOptions = Settings::get('theme_options', []);
+
+        foreach ($themeOptions as $option) {
+            $formController->addTabFields([
+                'theme_options[' . $option['key'] . ']' => [
+                    'label' => $option['key'],
+                    'tab' => 'codecycler.teams::lang.tabs.theme_options',
+                    'type' => $option['type'],
+                    'span' => 'left',
+                ],
+            ]);
+        }
     }
 }

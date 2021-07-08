@@ -27,6 +27,7 @@ tabs:
                             checkbox: checkbox
                             switch: switch
                             colorpicker: colorpicker
+                            mediafinder: mediafinder
                     options:
                         label: Options
                         span: full
