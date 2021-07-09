@@ -90,4 +90,29 @@ class Team extends Model
 
         return $active->id === $this->id;
     }
+
+    public function theme()
+    {
+        $output = [];
+
+        $fields = Settings::get('theme_options');
+
+        foreach ($fields as $field) {
+            $value = $this->theme_options[$field['key']];
+
+            if ($field['type'] === 'mediafinder') {
+                $output[$field['key']] = url('storage/app/media' . $value);
+                continue;
+            }
+
+            $output[$field['key']] = $value;
+        }
+
+        return $output;
+    }
+
+    public function featureKeys()
+    {
+        return $this->features->pluck('feature_key')->toArray();
+    }
 }

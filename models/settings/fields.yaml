@@ -28,6 +28,7 @@ tabs:
                             switch: switch
                             colorpicker: colorpicker
                             mediafinder: mediafinder
+                            codeeditor: codeeditor
                     options:
                         label: Options
                         span: full
