@@ -7,6 +7,23 @@ tabs:
             tab: General
             default: false
 
+        is_default_team:
+            label: 'codecycler.teams::lang.fields.is_default_team'
+            type: switch
+            span: left
+            tab: General
+            default: false
+
+        default_team:
+            label: 'codecycler.teams::lang.fields.default_team'
+            type: dropdown
+            emptyOption: 'Select default team'
+            tab: General
+            trigger:
+                action: show
+                field: is_default_team
+                condition: checked
+
         theme_options:
             label: 'codecycler.teams::lang.fields.theme_options'
             type: repeater

@@ -2,6 +2,7 @@
 
 use RainLab\User\Models\User;
 use Codecycler\Teams\Models\Team;
+use Codecycler\Teams\Models\Settings;
 
 class ExtendFrontendUser
 {
@@ -12,6 +13,7 @@ class ExtendFrontendUser
                 Team::class,
                 'table' => 'codecycler_teams_teams_users',
                 'name' => 'teamable',
+                'timestamps' => true,
             ];
         });
     }

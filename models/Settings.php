@@ -11,4 +11,9 @@ class Settings extends Model
 
     // Reference to field configuration
     public $settingsFields = 'fields.yaml';
+
+    public function getDefaultTeamOptions()
+    {
+        return Team::all()->pluck('name', 'id');
+    }
 }

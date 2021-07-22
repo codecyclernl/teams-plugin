@@ -10,6 +10,7 @@ use Codecycler\Teams\Classes\TeamManager;
 use Codecycler\Teams\Classes\ExtendBackendUser;
 use Codecycler\Teams\Classes\ExtendModelFields;
 use Codecycler\Teams\Classes\ExtendFrontendUser;
+use Codecycler\Teams\Classes\ExtendFrontendUserLogin;
 
 /**
  * Teams Plugin Information File
@@ -42,6 +43,7 @@ class Plugin extends PluginBase
         Event::subscribe(ExtendModelFields::class);
         Event::subscribe(ExtendBackendUser::class);
         Event::subscribe(ExtendFrontendUser::class);
+        Event::subscribe(ExtendFrontendUserLogin::class);
 
         //
         if(App::runningInBackend()) {

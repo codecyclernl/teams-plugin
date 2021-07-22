@@ -5,6 +5,9 @@
         'team_id' => 'Team',
         'theme_options' => 'Theme options',
         'auto_create_teams' => 'Auto create teams for users without one',
+        'is_default_team' => 'Use default team',
+        'default_team' => 'Default team',
+        'select_default_team' => 'Select a default team',
     ],
     'tabs' => [
         'backend_users' => 'Backend users',

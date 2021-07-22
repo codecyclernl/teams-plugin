@@ -20,6 +20,10 @@ class TeamManager
             $this->createPersonalTeam();
         }
 
+        if (! auth()->user()->teams->first() && Settings::get('is_default_team', false)) {
+            $this->attachToDefaultTeam();
+        }
+
         if (! auth()->user()->teams->first() && !Settings::get('auto_create_teams', false)) {
             // Create a new team
             return null;
@@ -42,7 +46,7 @@ class TeamManager
         return $this;
     }
 
-    public function createPersonalTeam($user = null)
+    public function createPersonalTeam($user = null): void
     {
         //
         if (! $user) {
@@ -57,6 +61,19 @@ class TeamManager
 
         //
         $team->save();
+
+        //
+        $user->teams()->add($team);
+    }
+
+    public function attachToDefaultTeam($user = null): void
+    {
+        if (! $user) {
+            $user = auth()->user();
+        }
+
+        //
+        $team = Team::find(Settings::get('default_team'));
 
         //
         $user->teams()->add($team);
