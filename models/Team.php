@@ -4,6 +4,7 @@ use Model;
 use Ramsey\Uuid\Uuid;
 use System\Classes\PluginManager;
 use Codecycler\Teams\Classes\TeamManager;
+use Codecycler\MediaPro\Classes\SpaceManager;
 
 /**
  * Model
@@ -114,5 +115,10 @@ class Team extends Model
     public function featureKeys()
     {
         return $this->features->pluck('feature_key')->toArray();
+    }
+
+    public function getSpaceCode()
+    {
+        return SpaceManager::instance()->getPrimaryFor($this)->code;
     }
 }
