@@ -17,6 +17,10 @@ use Codecycler\Teams\Classes\ExtendFrontendUserLogin;
  */
 class Plugin extends PluginBase
 {
+    public $require = [
+        'Codecycler.Extend',
+    ];
+    
     /**
      * Returns information about this plugin.
      *
