@@ -102,7 +102,7 @@ class Team extends Model
             $value = $this->theme_options[$field['key']];
 
             if ($field['type'] === 'mediafinder') {
-                $output[$field['key']] = url('storage/app/media' . $value);
+                $output[$field['key']] = url(config('system.storage.media.path') . $value);
                 continue;
             }
 
