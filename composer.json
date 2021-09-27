@@ -4,6 +4,7 @@
     "description": "No description provided yet...",
     "require": {
         "composer/installers": "~1.0",
-        "codecycler/extend-plugin": "dev-main"
+        "codecycler/extend-plugin": "dev-main",
+        "rainlab/user-plugin": "*"
     }
 }

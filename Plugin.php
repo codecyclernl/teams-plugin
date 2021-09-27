@@ -7,6 +7,7 @@ use Backend;
 use System\Classes\PluginBase;
 use RainLab\User\Classes\AuthManager;
 use Codecycler\Teams\Classes\TeamManager;
+use Codecycler\Teams\Classes\ExtendOnboard;
 use Codecycler\Teams\Classes\ExtendBackendUser;
 use Codecycler\Teams\Classes\ExtendModelFields;
 use Codecycler\Teams\Classes\ExtendFrontendUser;
@@ -19,6 +20,7 @@ class Plugin extends PluginBase
 {
     public $require = [
         'Codecycler.Extend',
+        'RainLab.User',
     ];
     
     /**
@@ -44,6 +46,7 @@ class Plugin extends PluginBase
     public function boot()
     {
         //
+        Event::subscribe(ExtendOnboard::class);
         Event::subscribe(ExtendModelFields::class);
         Event::subscribe(ExtendBackendUser::class);
         Event::subscribe(ExtendFrontendUser::class);
