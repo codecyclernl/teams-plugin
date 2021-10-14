@@ -10,8 +10,10 @@ users:
   label: Users
   manage:
     form: $/rainlab/user/models/user/fields.yaml
+    recordsPerPage: 50
   view:
     toolbarButtons: link|unlink
+    recordUrl: rainlab/user/users/preview/:id
     list: $/rainlab/user/models/user/columns.yaml
 
 features:

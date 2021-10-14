@@ -2,7 +2,6 @@
 
 use RainLab\User\Models\User;
 use Codecycler\Teams\Models\Team;
-use Codecycler\Teams\Models\Settings;
 
 class ExtendFrontendUser
 {

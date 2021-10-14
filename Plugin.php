@@ -11,6 +11,7 @@ use Codecycler\Teams\Classes\ExtendOnboard;
 use Codecycler\Teams\Classes\ExtendBackendUser;
 use Codecycler\Teams\Classes\ExtendModelFields;
 use Codecycler\Teams\Classes\ExtendFrontendUser;
+use Codecycler\Teams\Classes\ExtendFrontendUserForm;
 use Codecycler\Teams\Classes\ExtendFrontendUserLogin;
 
 /**
@@ -50,6 +51,7 @@ class Plugin extends PluginBase
         Event::subscribe(ExtendModelFields::class);
         Event::subscribe(ExtendBackendUser::class);
         Event::subscribe(ExtendFrontendUser::class);
+        Event::subscribe(ExtendFrontendUserForm::class);
         Event::subscribe(ExtendFrontendUserLogin::class);
 
         //
