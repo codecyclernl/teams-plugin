@@ -35,6 +35,8 @@ class ExtendFrontendUserForm extends PluginExtender
             'teams' => [
                 'label' => 'team',
                 'manage' => [
+                    'showSearch' => true,
+                    'recordsPerPage' => 50,
                     'form' => '$/codecycler/teams/models/team/fields.yaml',
                 ],
                 'view' => [
