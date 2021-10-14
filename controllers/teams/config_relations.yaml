@@ -2,6 +2,8 @@ backend_users:
   label: Backend users
   manage:
     form: ~/modules/backend/models/user/fields.yaml
+    showSearch: true
+    recordsPerPage: 50
   view:
     toolbarButtons: link|unlink
     list: ~/modules/backend/models/user/columns.yaml
@@ -11,6 +13,7 @@ users:
   manage:
     form: $/rainlab/user/models/user/fields.yaml
     recordsPerPage: 50
+    showSearch: true
   view:
     toolbarButtons: link|unlink
     recordUrl: rainlab/user/users/preview/:id
@@ -19,6 +22,8 @@ users:
 features:
   label: Features
   manage:
+    showSearch: true
+    recordsPerPage: true
     form: $/codecycler/teams/models/feature/fields.yaml
   view:
     toolbarButtons: link|unlink
