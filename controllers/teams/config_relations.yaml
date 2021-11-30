@@ -23,7 +23,7 @@ features:
   label: Features
   manage:
     showSearch: true
-    recordsPerPage: true
+    recordsPerPage: 50
     form: $/codecycler/teams/models/feature/fields.yaml
   view:
     toolbarButtons: link|unlink

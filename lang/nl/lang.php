@@ -9,6 +9,7 @@
         'default_team' => 'Default team',
         'select_default_team' => 'Select a default team',
         'import_select_team' => 'Select a team to attach the users to',
+        'domain' => 'Domain',
     ],
     'tabs' => [
         'backend_users' => 'Backend users',

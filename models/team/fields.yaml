@@ -11,6 +11,10 @@ fields:
         context:
             - update
             - preview
+    domain:
+        label: 'codecycler.teams::lang.fields.domain'
+        span: auto
+        type: text
 tabs:
     fields:
         backend_users:

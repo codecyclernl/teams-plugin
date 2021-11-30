@@ -85,6 +85,10 @@ class Plugin extends PluginBase
                 return redirect()->refresh();
             });
         });
+
+        // Resolve by domain
+        TeamManager::instance()
+            ->resolveByDomain();
     }
 
     /**

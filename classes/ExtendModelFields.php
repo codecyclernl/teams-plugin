@@ -34,6 +34,7 @@ class ExtendModelFields
                     'type' => 'recordfinder',
                     'span' => 'left',
                     'list' => '$/codecycler/teams/models/team/columns.yaml',
+                    'required' => true,
                 ],
             ]);
         });

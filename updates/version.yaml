@@ -20,3 +20,6 @@
 1.0.8:
     - 'Created table codecycler_teams_features_teams'
     - builder_table_create_codecycler_teams_features_teams.php
+1.0.9:
+    - 'Updated table codecycler_teams_teams'
+    - builder_table_update_codecycler_teams_teams.php

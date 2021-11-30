@@ -10,23 +10,21 @@ class TeamManager
 
     public function active(): ?Team
     {
-        if (!auth()->user()) {
-            return null;
-        }
+        if (auth()->user()) {
+            // First check the session
+            if (! auth()->user()->teams->first() && Settings::get('auto_create_teams', false)) {
+                // Create a new team
+                $this->createPersonalTeam();
+            }
 
-        // First check the session
-        if (! auth()->user()->teams->first() && Settings::get('auto_create_teams', false)) {
-            // Create a new team
-            $this->createPersonalTeam();
-        }
+            if (! auth()->user()->teams->first() && Settings::get('is_default_team', false)) {
+                $this->attachToDefaultTeam();
+            }
 
-        if (! auth()->user()->teams->first() && Settings::get('is_default_team', false)) {
-            $this->attachToDefaultTeam();
-        }
-
-        if (! auth()->user()->teams->first() && !Settings::get('auto_create_teams', false)) {
-            // Create a new team
-            return null;
+            if (! auth()->user()->teams->first() && !Settings::get('auto_create_teams', false)) {
+                // Create a new team
+                return null;
+            }
         }
 
         $activeTeamId = session('active_team_id') ?? auth()->user()->teams->first()->id;
@@ -77,5 +75,18 @@ class TeamManager
 
         //
         $user->teams()->add($team);
+    }
+
+    public function resolveByDomain()
+    {
+        $domain = request()->server('HTTP_HOST');
+
+        // Get team for domain
+        $team = Team::where('domain', $domain)->first();
+
+        //
+        if ($team) {
+            $this->makeActive($team->code);
+        }
     }
 }
