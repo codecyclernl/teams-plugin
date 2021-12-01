@@ -27,7 +27,14 @@ class TeamManager
             }
         }
 
-        $activeTeamId = session('active_team_id') ?? auth()->user()->teams->first()->id;
+        $activeTeamId = session('active_team_id');
+
+        if (!$activeTeamId && auth()->user()) {
+            $activeTeamId = auth()->user()->teams->first()->id;
+        } else {
+            return null;
+        }
+
         return Team::find($activeTeamId);
     }
 

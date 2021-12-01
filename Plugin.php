@@ -13,6 +13,7 @@ use Codecycler\Teams\Classes\ExtendModelFields;
 use Codecycler\Teams\Classes\ExtendFrontendUser;
 use Codecycler\Teams\Classes\ExtendFrontendUserForm;
 use Codecycler\Teams\Classes\ExtendFrontendUserLogin;
+use System\Classes\VersionManager;
 
 /**
  * Teams Plugin Information File
@@ -86,9 +87,10 @@ class Plugin extends PluginBase
             });
         });
 
-        // Resolve by domain
-        TeamManager::instance()
-            ->resolveByDomain();
+        if (VersionManager::instance()->hasVersion('Codecycler.Teams', '1.0.9')) {
+            TeamManager::instance()
+                ->resolveByDomain();
+        }
     }
 
     /**
