@@ -23,3 +23,6 @@
 1.0.9:
     - 'Updated table codecycler_teams_teams'
     - builder_table_update_codecycler_teams_teams.php
+1.0.10:
+    - 'Updated table codecycler_teams_teams'
+    - builder_table_update_codecycler_teams_teams_2.php

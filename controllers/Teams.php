@@ -31,11 +31,33 @@ class Teams extends Controller
         // Add theme option fields
         $themeOptions = Settings::get('theme_options', []);
 
+        if (!$themeOptions) {
+            $themeOptions = [];
+        }
+
         foreach ($themeOptions as $option) {
             $formController->addTabFields([
                 'theme_options[' . $option['key'] . ']' => [
                     'label' => $option['key'],
                     'tab' => 'codecycler.teams::lang.tabs.theme_options',
+                    'type' => $option['type'],
+                    'span' => 'left',
+                ],
+            ]);
+        }
+
+        // Add extra option fields
+        $themeOptions = Settings::get('extra_options', []);
+
+        if (!$themeOptions) {
+            $themeOptions = [];
+        }
+
+        foreach ($themeOptions as $option) {
+            $formController->addTabFields([
+                'extra_data[' . $option['key'] . ']' => [
+                    'label' => $option['key'],
+                    'tab' => 'codecycler.teams::lang.tabs.extra_options',
                     'type' => $option['type'],
                     'span' => 'left',
                 ],

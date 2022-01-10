@@ -29,6 +29,10 @@ class TeamManager
 
         $activeTeamId = session('active_team_id');
 
+        if ($activeTeamId && auth()->user()) {
+            return Team::find($activeTeamId);
+        }
+
         if (!$activeTeamId && auth()->user()) {
             $activeTeamId = auth()->user()->teams->first()->id;
         } else {
@@ -87,6 +91,10 @@ class TeamManager
     public function resolveByDomain()
     {
         $domain = request()->server('HTTP_HOST');
+
+        if (request()->header('X-Team-Domain')) {
+            $domain = request()->header('X-Team-Domain');
+        }
 
         // Get team for domain
         $team = Team::where('domain', $domain)->first();

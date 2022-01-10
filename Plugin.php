@@ -1,6 +1,7 @@
 <?php namespace Codecycler\Teams;
 
 use App;
+use Codecycler\Teams\Classes\ExtendH5p;
 use Event;
 use Flash;
 use Backend;
@@ -48,6 +49,7 @@ class Plugin extends PluginBase
     public function boot()
     {
         //
+        Event::subscribe(ExtendH5p::class);
         Event::subscribe(ExtendOnboard::class);
         Event::subscribe(ExtendModelFields::class);
         Event::subscribe(ExtendBackendUser::class);

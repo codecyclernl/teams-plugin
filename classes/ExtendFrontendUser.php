@@ -14,6 +14,10 @@ class ExtendFrontendUser
                 'name' => 'teamable',
                 'timestamps' => true,
             ];
+
+            $model->addDynamicMethod('inGroup', function ($groupCode) use ($model) {
+                return $model->groups->pluck('code')->contains($groupCode);
+            });
         });
     }
 }

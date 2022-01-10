@@ -24,6 +24,7 @@ class Team extends Model
     protected $jsonable = [
         'theme_options',
         'properties',
+        'extra_data',
     ];
 
     /**

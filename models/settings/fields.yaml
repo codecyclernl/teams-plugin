@@ -62,3 +62,41 @@ tabs:
                                 value:
                                     label: Value
                                     span: right
+        extra_options:
+            label: 'codecycler.teams::lang.fields.extra_options'
+            type: repeater
+            span: left
+            tab: Extra
+            form:
+                fields:
+                    key:
+                        label: Key
+                        span: full
+                    type:
+                        label: Type
+                        span: full
+                        type: dropdown
+                        options:
+                            text: text
+                            dropdown: dropdown
+                            checkbox: checkbox
+                            switch: switch
+                            colorpicker: colorpicker
+                            mediafinder: mediafinder
+                            codeeditor: codeeditor
+                    options:
+                        label: Options
+                        span: full
+                        type: repeater
+                        trigger:
+                            action: show
+                            field: type
+                            condition: value[dropdown]
+                        form:
+                            fields:
+                                key:
+                                    label: Key
+                                    span: left
+                                value:
+                                    label: Value
+                                    span: right

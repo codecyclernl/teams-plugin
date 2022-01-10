@@ -4,6 +4,7 @@
         'code' => 'Code',
         'team_id' => 'Team',
         'theme_options' => 'Theme options',
+        'extra_options' => 'Extra options',
         'auto_create_teams' => 'Auto create teams for users without one',
         'is_default_team' => 'Use default team',
         'default_team' => 'Default team',
@@ -16,6 +17,7 @@
         'users' => 'Users',
         'features' => 'Features',
         'theme_options' => 'Theme options',
+        'extra_options' => 'Extra data',
     ],
     'menu' => [
         'switch_team' => 'Team wisselen',
