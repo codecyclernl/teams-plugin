@@ -5,6 +5,11 @@ columns:
         searchable: true
         invisible: false
         sortable: true
+    users_count:
+        label: 'Gebruikers'
+        type: 'number'
+        relation: 'users'
+        relationCount: true
     code:
         label: 'codecycler.teams::lang.fields.code'
         type: text
